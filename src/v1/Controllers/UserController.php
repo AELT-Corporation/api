@@ -26,7 +26,7 @@ class UserController {
     }
     
     /**
-     * Listagem de Usuários
+     * Listagem de Usuáriosclea
      * @param [type] $request
      * @param [type] $response
      * @param [type] $args
