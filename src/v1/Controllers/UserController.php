@@ -58,7 +58,7 @@ class UserController {
          * Instância da nossa Entidade preenchida com nossos parametros do post
          */
         $User = (new User())->setName($params->name)
-            ->setAuthor($params->author);
+            ->setPassword($params->password);
         
         /**
          * Registra a criação do usuário
@@ -136,7 +136,7 @@ class UserController {
          * Atualiza e Persiste o usuário com os parâmetros recebidos no request
          */
         $User->setName($request->getParam('name'))
-            ->setAuthor($request->getParam('author'));
+            ->setPassword($request->getParam('password'));
 
         /**
          * Persiste a entidade no banco de dados
