@@ -24,3 +24,7 @@
 [2017-04-28 19:33:09] books-microservice.INFO: Book 12 not Found [] []
 [2017-04-28 19:33:19] books-microservice.INFO: Book 2 updated! {"id":2,"name":"Sandman Vol02","author":"Neil Gaiman"} []
 [2018-06-11 21:54:35] books-microservice.INFO: User Created! {"id":null,"name":"Luis Gustavo Miara","password":"123456"} []
+[2018-06-15 20:32:46] books-microservice.INFO: User Created! {"id":null,"name":"Luis Gustavo Miara","email":"luisgustavomiara@gmail.com","password":"123456"} []
+[2018-06-15 20:33:44] books-microservice.INFO: User Created! {"id":null,"name":"Tamyres","email":"tamyres@gmail.com","password":"123456"} []
+[2018-06-15 20:34:00] books-microservice.INFO: User Created! {"id":null,"name":"Anderson","email":"anderson@gmail.com","password":"123456"} []
+[2018-06-15 20:53:07] books-microservice.WARNING: User 1 Not Found [] []

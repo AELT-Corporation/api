@@ -152,7 +152,7 @@ $app->add(new \Slim\Middleware\JwtAuthentication([
     "regexp" => "/(.*)/",
     "header" => "X-Token",
     "path" => "/",
-    "passthrough" => ["/auth", "/v1"],
+    "passthrough" => ["/auth", "/api-aelt"],
     "realm" => "Protected",
     "secret" => $container['secretkey']
 ]));

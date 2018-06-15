@@ -3,10 +3,10 @@
 /**
  * Grupo dos enpoints iniciados por v1
  */
-$app->group('/v1', function() {
+$app->group('/api-aelt', function() {
 
     /**
-     * Dentro de v1, o recurso /user
+     * Dentro de api, o recurso /user
      */
     $this->group('/user', function() {
         $this->get('', '\App\Controllers\UserController:listUser');
@@ -21,7 +21,7 @@ $app->group('/v1', function() {
     });
 
     /**
-     * Dentro de v1, o recurso /auth
+     * Dentro de api, o recurso /auth
      */
     $this->group('/auth', function() {
         $this->get('', \App\Controllers\AuthController::class);

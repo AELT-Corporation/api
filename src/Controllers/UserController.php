@@ -58,7 +58,7 @@ class UserController {
          * Instância da nossa Entidade preenchida com nossos parametros do post
          */
         $User = (new User())->setName($params->name)
-            ->setPassword($params->password);
+            ->setPassword($params->password)->setEmail($params->email);
         
         /**
          * Registra a criação do usuário
@@ -98,7 +98,13 @@ class UserController {
             $logger = $this->container->get('logger');
             $logger->warning("User {$id} Not Found");
             throw new \Exception("User not Found", 404);
-        }    
+        }
+        
+        /**
+         * Registra a visualização do usuário
+         */
+        $logger = $this->container->get('logger');
+        $logger->info('User View!', $User->getValues());
 
         $return = $response->withJson($User, 200)
             ->withHeader('Content-type', 'application/json');
@@ -142,7 +148,13 @@ class UserController {
          * Persiste a entidade no banco de dados
          */
         $entityManager->persist($User);
-        $entityManager->flush();        
+        $entityManager->flush();      
+        
+        /**
+         * Registra a criação do usuário
+         */
+        $logger = $this->container->get('logger');
+        $logger->info('User Update!', $User->getValues());
         
         $return = $response->withJson($User, 200)
             ->withHeader('Content-type', 'application/json');
