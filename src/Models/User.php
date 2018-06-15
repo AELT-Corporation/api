@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Entity;
+namespace App\Models;
 
 /**
  * @Entity @Table(name="users")
@@ -62,7 +62,7 @@ class User {
     }    
 
     /**
-     * @return App\Models\Entity\User
+     * @return App\Models\User
      */
     public function setName($name){
 
@@ -75,7 +75,7 @@ class User {
     }
 
      /**
-     * @return App\Models\Entity\User
+     * @return App\Models\User
      */
     public function setPassword($password) {
 
@@ -89,7 +89,7 @@ class User {
 
 
     /**
-     * @return App\Models\Entity\User
+     * @return App\Models\User
      */
     public function setEmail($email) {
 
@@ -102,7 +102,7 @@ class User {
     }
 
     /**
-     * @return App\Models\Entity\User
+     * @return App\Models\User
      */
     public function getValues() {
         return get_object_vars($this);

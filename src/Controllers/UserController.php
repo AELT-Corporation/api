@@ -4,7 +4,7 @@ namespace App\Controllers;
 use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
-use App\Models\Entity\User;
+use App\Models\User;
 
 /**
  * Controller v1 de Usuários
@@ -34,7 +34,7 @@ class UserController {
      */
     public function listUser($request, $response, $args) {
         $entityManager = $this->container->get('em');
-        $UsersRepository = $entityManager->getRepository('App\Models\Entity\User');
+        $UsersRepository = $entityManager->getRepository('App\Models\User');
         $Users = $UsersRepository->findAll();
         $return = $response->withJson($Users, 200)
             ->withHeader('Content-type', 'application/json');
@@ -88,7 +88,7 @@ class UserController {
         $id = (int) $args['id'];
 
         $entityManager = $this->container->get('em');
-        $UsersRepository = $entityManager->getRepository('App\Models\Entity\User');
+        $UsersRepository = $entityManager->getRepository('App\Models\User');
         $User = $UsersRepository->find($id); 
 
         /**
@@ -120,7 +120,7 @@ class UserController {
          * Encontra o usuário no Banco
          */ 
         $entityManager = $this->container->get('em');
-        $UsersRepository = $entityManager->getRepository('App\Models\Entity\User');
+        $UsersRepository = $entityManager->getRepository('App\Models\User');
         $User = $UsersRepository->find($id);   
 
         /**
@@ -164,7 +164,7 @@ class UserController {
          * Encontra o usuário no Banco
          */ 
         $entityManager = $this->container->get('em');
-        $UsersRepository = $entityManager->getRepository('App\Models\Entity\User');
+        $UsersRepository = $entityManager->getRepository('App\Models\User');
         $User = $UsersRepository->find($id);   
 
         /**

@@ -83,7 +83,7 @@ $isDevMode = true;
 /**
  * Diretório de Entidades e Metadata do Doctrine
  */
-$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src/Models/Entity"), $isDevMode);
+$config = Setup::createAnnotationMetadataConfiguration(array(__DIR__."/src/Models"), $isDevMode);
 
 /**
  * Array de configurações da nossa conexão com o banco
