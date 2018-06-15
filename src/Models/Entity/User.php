@@ -20,6 +20,13 @@ class User {
      */
     public $name;
 
+
+    /**
+     * @var string
+     * @Column(type="string") 
+     */
+    public $email;
+
     /**
      * @var string
      * @Column(type="string") 
@@ -38,6 +45,13 @@ class User {
      */
     public function getName(){
         return $this->name;
+    }
+
+    /**
+     * @return string email
+     */
+    public function getEmail() {
+        return $this->email;
     }
 
     /**
@@ -70,6 +84,20 @@ class User {
         }
 
         $this->password = $password;
+        return $this;
+    }
+
+
+    /**
+     * @return App\Models\Entity\User
+     */
+    public function setEmail($email) {
+
+        if (!$email && !is_string($email)) {
+            throw new \InvalidArgumentException("Password is required", 400);
+        }
+
+        $this->email = $email;
         return $this;
     }
 
