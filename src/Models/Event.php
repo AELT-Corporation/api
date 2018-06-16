@@ -27,6 +27,18 @@ class Event {
     public $nameEvent;
 
     /**
+     * @var int
+     * @Column(type="string") 
+     */
+    public $createdAt;
+
+    /**
+     * @var string
+     * @Column(type="string") 
+     */
+    public $date;
+
+    /**
      * @var string
      * @Column(type="string") 
      */
@@ -44,6 +56,7 @@ class Event {
      * @Column(type="string") 
      */
     public $lastName;
+
 
     /**
      * @var string
@@ -94,6 +107,20 @@ class Event {
      */
     public function getNameEvent(){
         return $this->nameEvent;
+    }
+
+    /**
+     * @return string createdAt
+     */
+    public function getCreatedAt(){
+        return $this->createdAt;
+    }
+
+    /**
+     * @return string date
+     */
+    public function getDate(){
+        return $this->date;
     }
 
     /**
@@ -176,6 +203,32 @@ class Event {
         }
 
         $this->nameEvent = $nameEvent;
+        return $this;  
+    }
+
+    /**
+     * @return App\Models\Event
+     */
+    public function setCreatedAt($createdAt){
+
+        if (!$createdAt && !is_string($createdAt)) {
+            throw new \InvalidArgumentException("Event name is required", 400);
+        }
+
+        $this->createdAt = $createdAt;
+        return $this;  
+    }
+
+    /**
+     * @return App\Models\Event
+     */
+    public function setDate($date){
+
+        if (!$date && !is_string($date)) {
+            throw new \InvalidArgumentException("Event name is required", 400);
+        }
+
+        $this->date = $date;
         return $this;  
     }
 

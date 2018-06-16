@@ -58,9 +58,10 @@ class EventController {
          * Instância da nossa Entidade preenchida com nossos parametros do post
          */
         $Event = (new Event())->setCompany($params->company)
-            ->setNameEvent($params->nameEvent)->setEmail($params->email)->setFirstName($params->firstName)
-            ->setLastName($params->lastName)->setAdress($params->adress)->setCity($params->city)
-            ->setCountry($params->country)->setTags($params->tags)->setAbout($params->about);
+            ->setNameEvent($params->nameEvent)->setCreatedAt($params->createdAt)->setDate($params->date)
+            ->setEmail($params->email)->setFirstName($params->firstName)->setLastName($params->lastName)
+            ->setAdress($params->adress)->setCity($params->city)->setCountry($params->country)
+            ->setTags($params->tags)->setAbout($params->about);
         
         /**
          * Registra a criação do event
