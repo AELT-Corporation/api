@@ -57,8 +57,10 @@ class UserController {
         /**
          * Instância da nossa Entidade preenchida com nossos parametros do post
          */
-        $User = (new User())->setName($params->name)
-            ->setPassword($params->password)->setEmail($params->email);
+        $User = (new User())->setFirstName($params->firstname)->setLastName($params->lastname)
+            ->setPassword($params->password)->setEmail($params->email)->setCompany($params->company)
+            ->setArea($params->area)->setCountry($params->country)->setCity($params->city)
+            ->setGithub($params->github)->setOffice($params->office);
         
         /**
          * Registra a criação do usuário
@@ -141,8 +143,16 @@ class UserController {
         /**
          * Atualiza e Persiste o usuário com os parâmetros recebidos no request
          */
-        $User->setName($request->getParam('name'))
-            ->setPassword($request->getParam('password'));
+        $User->setFirstName($request->getParam('firstname'))
+            ->setLastName($request->getParam('lastname'))
+            ->setPassword($request->getParam('password'))
+            ->setEmail($request->getParam('email'))
+            ->setArea($request->getParam('area'))
+            ->setCountry($request->getParam('country'))
+            ->setCity($request->getParam('city'))
+            ->setOffice($request->getParam('office'))
+            ->setCompany($request->getParam('company'))
+            ->setGithub($request->getParam('github'));
 
         /**
          * Persiste a entidade no banco de dados
