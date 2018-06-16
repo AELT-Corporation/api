@@ -3,7 +3,7 @@
 namespace App\Models;
 
 /**
- * @Entity @Table(name="users")
+ * @Entity @Table(name="user")
  **/
 class User {
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Grupo dos enpoints iniciados por v1
+ * Grupo dos enpoints iniciados por /api-aelt
  */
 $app->group('/api-aelt', function() {
 
@@ -34,6 +34,27 @@ $app->group('/api-aelt', function() {
         $this->get('/{id:[0-9]+}', '\App\Controllers\EventController:viewEvent');
         $this->put('/{id:[0-9]+}', '\App\Controllers\EventController:updateEvent');
         $this->delete('/{id:[0-9]+}', '\App\Controllers\EventController:deleteEvent');
+    });
+
+    /**
+     * Dentro de api, o recurso /Participation
+     */
+    $this->group('/participation', function() {
+        $this->get('', '\App\Controllers\ParticipationController:listParticipation');
+        $this->post('', '\App\Controllers\ParticipationController:createParticipation');
+        
+        /**
+         * Validando se tem um integer no final da URL
+         */
+        $this->get('/{id:[0-9]+}', '\App\Controllers\ParticipationController:viewParticipation');
+        $this->put('/{id:[0-9]+}', '\App\Controllers\ParticipationController:updateParticipation');
+        $this->delete('/{id:[0-9]+}', '\App\Controllers\ParticipationController:deleteParticipation');
+
+
+        /**
+         * Others methods
+         */
+        $this->get('/status', '\App\Controllers\ParticipationController:listParticipationStatus');
     });
 
     /**

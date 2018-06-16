@@ -13,8 +13,10 @@ use Firebase\JWT\JWT;
  */
 $configs = [
     'settings' => [
+        'determineRouteBeforeAppMiddleware' => true,
         'displayErrorDetails' => true,
-    ]   
+        'addContentLengthHeader' => false,
+    ]
 ];
 
 /**

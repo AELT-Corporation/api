@@ -54,6 +54,7 @@ class EventController {
          * Pega o Entity Manager do nosso Container
          */
         $entityManager = $this->container->get('em');
+
         /**
          * Instância da nossa Entidade preenchida com nossos parametros do post
          */
@@ -62,6 +63,8 @@ class EventController {
             ->setEmail($params->email)->setFirstName($params->firstName)->setLastName($params->lastName)
             ->setAdress($params->adress)->setCity($params->city)->setCountry($params->country)
             ->setTags($params->tags)->setAbout($params->about);
+
+        
         
         /**
          * Registra a criação do event
@@ -74,6 +77,8 @@ class EventController {
          */
         $entityManager->persist($Event);
         $entityManager->flush();
+
+
         $return = $response->withJson($Event, 201)
             ->withHeader('Content-type', 'application/json');
         return $return;       
