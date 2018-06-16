@@ -57,7 +57,7 @@ class UserController {
         /**
          * Instância da nossa Entidade preenchida com nossos parametros do post
          */
-        $User = (new User())->setFirstName($params->firstname)->setLastName($params->lastname)
+        $User = (new User())->setFirstName($params->firstName)->setLastName($params->lastName)
             ->setPassword($params->password)->setEmail($params->email)->setCompany($params->company)
             ->setArea($params->area)->setCountry($params->country)->setCity($params->city)
             ->setGithub($params->github)->setOffice($params->office);
@@ -143,8 +143,8 @@ class UserController {
         /**
          * Atualiza e Persiste o usuário com os parâmetros recebidos no request
          */
-        $User->setFirstName($request->getParam('firstname'))
-            ->setLastName($request->getParam('lastname'))
+        $User->setFirstName($request->getParam('firstName'))
+            ->setLastName($request->getParam('lastName'))
             ->setPassword($request->getParam('password'))
             ->setEmail($request->getParam('email'))
             ->setArea($request->getParam('area'))

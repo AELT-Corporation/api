@@ -245,13 +245,13 @@ class User {
     /**
      * @return App\Models\User
      */
-    public function setLastName($lastname){
+    public function setLastName($lastName){
 
-        if (!$lastname && !is_string($lastname)) {
+        if (!$lastname && !is_string($lastName)) {
             throw new \InvalidArgumentException("User lastname is required", 400);
         }
 
-        $this->lastname = $lastname;
+        $this->lastName = $lastName;
         return $this;  
     }
 
