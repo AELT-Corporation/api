@@ -28,3 +28,6 @@
 [2018-06-15 20:33:44] books-microservice.INFO: User Created! {"id":null,"name":"Tamyres","email":"tamyres@gmail.com","password":"123456"} []
 [2018-06-15 20:34:00] books-microservice.INFO: User Created! {"id":null,"name":"Anderson","email":"anderson@gmail.com","password":"123456"} []
 [2018-06-15 20:53:07] books-microservice.WARNING: User 1 Not Found [] []
+[2018-06-15 21:47:55] books-microservice.WARNING: User 1 Not Found [] []
+[2018-06-15 21:47:57] books-microservice.WARNING: User 1 Not Found [] []
+[2018-06-15 21:48:11] books-microservice.INFO: User View! {"id":2,"name":"Tamyres","email":"tamyres@gmail.com","password":"123456"} []
