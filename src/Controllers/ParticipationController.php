@@ -200,26 +200,58 @@ class ParticipationController {
     }
 
     /**
-     * Listagem de Participation by status
+     * Listagem de Participation by status pending
      * @param [type] $request
      * @param [type] $response
      * @param [type] $args
      * @return Response
      */
-    public function listParticipationStatus($request, $response, $args) {
+    public function listParticipationPending($request, $response, $args) {
+
         $entityManager = $this->container->get('em');
         $ParticipationsRepository = $entityManager->getRepository('App\Models\Participation');
-        $Participations = $ParticipationsRepository->findAll();
-
-        foreach ($Participations as $key => $value){
-
-            if(strcmp($value->getStatus, "pending")){
-                print_r($value->getStatus);
-                $Pending = $value;
-            }
-        }
+        $status = "pending";
+        $Participations = $ParticipationsRepository->findBy(array('status' => $status));
         
-        $return = $response->withJson($Pending, 200)
+        $return = $response->withJson($Participations, 200)
+            ->withHeader('Content-type', 'application/json');
+        return $return;        
+    }
+
+    /**
+     * Listagem de Participation by status reject
+     * @param [type] $request
+     * @param [type] $response
+     * @param [type] $args
+     * @return Response
+     */
+    public function listParticipationReject($request, $response, $args) {
+
+        $entityManager = $this->container->get('em');
+        $ParticipationsRepository = $entityManager->getRepository('App\Models\Participation');
+        $status = "reject";
+        $Participations = $ParticipationsRepository->findBy(array('status' => $status));
+        
+        $return = $response->withJson($Participations, 200)
+            ->withHeader('Content-type', 'application/json');
+        return $return;        
+    }
+
+    /**
+     * Listagem de Participation by status reject
+     * @param [type] $request
+     * @param [type] $response
+     * @param [type] $args
+     * @return Response
+     */
+    public function listParticipationAprove($request, $response, $args) {
+
+        $entityManager = $this->container->get('em');
+        $ParticipationsRepository = $entityManager->getRepository('App\Models\Participation');
+        $status = "aprove";
+        $Participations = $ParticipationsRepository->findBy(array('status' => $status));
+        
+        $return = $response->withJson($Participations, 200)
             ->withHeader('Content-type', 'application/json');
         return $return;        
     }

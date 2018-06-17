@@ -207,5 +207,47 @@ class UserController {
             ->withHeader('Content-type', 'application/json');
         return $return;    
     }
+
+
+    /**
+     * Login 
+     * @param [type] $request
+     * @param [type] $response
+     * @param [type] $args
+     * @return Response
+     */
+    public function loginUser($request, $response, $args) {
+
+        $body = $response->getBody();
+
+        $params = (object) $request->getParams();
+        $email = (string)$params->email;
+        $password = (string)$params->password;
+  
+
+        $entityManager = $this->container->get('em');
+        $UsersRepository = $entityManager->getRepository('App\Models\User');
+        
+        $User = $UsersRepository->findBy(array('email' => $email, 'password' => $password));
+
+        /**
+         * Verifica se existe um usuário com a ID informada
+         */
+        if (!$User) {
+            $logger = $this->container->get('logger');
+            $logger->warning("User {$params->email} Not Found");
+            throw new \Exception("User not Found", 404);
+        }
+        
+        /**
+         * Registra a visualização do usuário
+         */
+        // $logger = $this->container->get('logger');
+        // $logger->info('User View!', $User->getValues());
+
+        $return = $response->withJson($User, 200)
+            ->withHeader('Content-type', 'application/json');
+        return $return;   
+    }
     
 }

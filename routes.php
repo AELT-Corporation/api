@@ -18,6 +18,11 @@ $app->group('/api-aelt', function() {
         $this->get('/{id:[0-9]+}', '\App\Controllers\UserController:viewUser');
         $this->put('/{id:[0-9]+}', '\App\Controllers\UserController:updateUser');
         $this->delete('/{id:[0-9]+}', '\App\Controllers\UserController:deleteUser');
+
+        /**
+         * Others methods
+         */
+        $this->post('/login', '\App\Controllers\UserController:loginUser');
     });
 
 
@@ -33,7 +38,8 @@ $app->group('/api-aelt', function() {
          */
         $this->get('/{id:[0-9]+}', '\App\Controllers\EventController:viewEvent');
         $this->put('/{id:[0-9]+}', '\App\Controllers\EventController:updateEvent');
-        $this->delete('/{id:[0-9]+}', '\App\Controllers\EventController:deleteEvent');
+        $this->delete('/{id:[0-9]+}', '\App\Controllers\EventController:deleteEvent');       
+
     });
 
     /**
@@ -54,7 +60,15 @@ $app->group('/api-aelt', function() {
         /**
          * Others methods
          */
-        $this->get('/status', '\App\Controllers\ParticipationController:listParticipationStatus');
+        $this->group('/status', function() {
+
+            $this->get('/pending', '\App\Controllers\ParticipationController:listParticipationPending');
+            $this->get('/reject', '\App\Controllers\ParticipationController:listParticipationReject');
+            $this->get('/aprove', '\App\Controllers\ParticipationController:listParticipationAprove');
+            
+
+
+        });
     });
 
     /**
